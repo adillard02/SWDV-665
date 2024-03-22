@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>Groceries List</title>
+</head>
+<body>
+    <h1>Grocery List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody id="groceryList">
+        </tbody>
+    </table>
+
+    <script>
+        class Grocery {
+            constructor(name, quantity, price, category) {
+                this.name = name;
+                this.quantity = quantity;
+                this.price = price;
+                this.category = category;
+            }
+        }
+
+        const groceries = [
+            new Grocery("Milk", 3, 2.5, "Dairy"),
+            new Grocery("Bread", 6, 1.5, "Bakery"),
+            new Grocery("Eggs", 11, 1.8, "Dairy"),
+        ];
+
+        const groceryListContainer = document.getElementById('groceryList');
+
+        groceries.forEach(grocery => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${grocery.name}</td>
+                <td>${grocery.quantity}</td>
+                <td>${grocery.price}</td>
+                <td>${grocery.category}</td>
+            `;
+            groceryListContainer.appendChild(row);
+        });
+    </script>
+</body>
+</html>
